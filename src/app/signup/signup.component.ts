@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { SignupService } from '../services/signup.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -7,19 +7,19 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SigninComponent implements OnInit {
-  loginForm: FormGroup
+export class SignupComponent implements OnInit {
+  signupForm: FormGroup
   hide: boolean = true;
-  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
+  constructor(private userService: SignupService, private formBuilder: FormBuilder) { }
 
   signin(e){
     e.preventDefault();
-    if(this.loginForm.valid){
-      this.userService.signin(this.signinForm.value.username, this.loginForm.value.password);
+    if(this.signupForm.valid){
+      this.signupService.signup(this.signupForm.value.username, this.signupForm.value.password);
     }
   }
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.signupForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.maxLength(16), Validators.minLength(3)])],
       password: ['', Validators.compose([Validators.required, Validators.maxLength (128), Validators.minLength(8)])]
     });
