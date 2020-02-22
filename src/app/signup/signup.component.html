@@ -21,7 +21,19 @@
                 Password must be 8 and 128 characters
             </mat-error>
     </mat-form-field>
-    <button class="login-button" mat-raised-button [color]="loginForm.valid ? 'primary' : 'warn'" [disabled]="!loginForm.valid && !loginForm.touched">Login</button>
+    <br>
+    <mat-form-field class="input">
+        <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Confirm Password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+            <mat-error *ngIf="loginForm.controls.password.errors && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+                Password must be 8 and 128 characters
+            </mat-error>
 
-    <mat-checkbox>Sign Up</mat-checkbox>
+            <input matInput placeholder="City" id="city">
+    </mat-form-field>
+
+    <button class="login-button" mat-raised-button [color]="loginForm.valid ? 'primary' : 'warn'" [disabled]="!loginForm.valid && !loginForm.touched">Sign Up</button>
+
 </form>
