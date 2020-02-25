@@ -12,11 +12,11 @@ import { TemperatureService } from '../services/temperature.service';
 export class UserComponent implements OnInit {
 temperature: number
 
+
   constructor(private temperatureService: TemperatureService) { }
 
   ngOnInit(): void {
     this.temperatureService.getTemperature().
     subscribe(val=> this.temperature=val);
   }
-
-}
+  }
