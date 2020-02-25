@@ -19,4 +19,10 @@ export class UserService {
     localStorage.clear();
     this.router.navigate(['/login'])
   }
+  signup(username, password){
+    let NewUser = "newUser"
+    username:
+    password:
+    localStorage.setItem('users', JSON.stringify(newUser));
+  }
 }

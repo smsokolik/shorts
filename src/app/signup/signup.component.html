@@ -21,21 +21,11 @@
     </mat-form-field>
     <br>
 
-    <mat-form-field class="input">
-        <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Confirm Password">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-            <mat-error *ngIf="signupForm.controls.password.errors && (signup.controls.password.dirty || signupForm.controls.password.touched)">
-                Password must be 8 and 128 characters
-            </mat-error>
+    <input matInput placeholder="City" id="city">
 
-            <input matInput placeholder="City" id="city">
-    </mat-form-field>
+    <button routerLink="/signup" class="signup-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'" [disabled]="!signup.valid && !signupForm.touched">Sign Up</button>
 
-    <button routerLink="/login" class="signup-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'" [disabled]="!signup.valid && !signupForm.touched">Sign Up</button>
-
-    <a routerLink="/login" class="btn btn-link">Cancel</a>
+    <a routerLink="/signup" class="btn btn-link">Cancel</a>
 
 </form>
 </body>

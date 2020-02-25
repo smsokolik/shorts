@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { SignupService } from '../services/signup.service';
+import { UserService } from '../services/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup
   hide: boolean = true;
-  constructor(private userService: SignupService, private formBuilder: FormBuilder) { }
+  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
-  signin(e){
+  signup(e){
     e.preventDefault();
     if(this.signupForm.valid){
-      this.signupService.signup(this.signupForm.value.username, this.signupForm.value.password);
+      this.userService.signup(this.signupForm.value.username, this.signupForm.value.password);
     }
   }
   ngOnInit(): void {

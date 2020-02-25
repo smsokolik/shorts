@@ -8,7 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './user/user.component';
 import { SignupComponent } from './signup/signup.component';
-import { SearchComponent } from './search/search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,6 @@ import { SearchComponent } from './search/search.component';
     LoginComponent,
     UserComponent,
     SignupComponent,
-    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,8 @@ import { SearchComponent } from './search/search.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
