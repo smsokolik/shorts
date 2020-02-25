@@ -19,13 +19,21 @@
                 Password must be 8 and 128 characters
             </mat-error>
     </mat-form-field>
+
+    <mat-form-field class="input">
+        <input matInput formControlName="city" [type]= "hide ? 'password' : 'text'" name = "city" placeholder = "City">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
     <br>
+    <div class="flex-container">
+        <button class="login-button left-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'" [disabled]="!signupForm.valid && !signupForm.touched">Sign Up</button>
 
-    <input matInput placeholder="City" id="city">
-
-    <button routerLink="/signup" class="signup-button" mat-raised-button [color]="signupForm.valid ? 'primary' : 'warn'" [disabled]="!signup.valid && !signupForm.touched">Sign Up</button>
-
-    <a routerLink="/signup" class="btn btn-link">Cancel</a>
+        <button routerLink="/login"class="right-button" mat-raised-button>Cancel</button>
+        
+        </div>
 
 </form>
 </body>

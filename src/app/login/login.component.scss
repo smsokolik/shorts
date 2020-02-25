@@ -17,7 +17,19 @@ form{
     width: 100%;
     margin: 10px auto;
 }
-button{
-    margin: 10px 0 0 50%;
+.left-button{
     width: 50%;
-}
+    cursor: pointer;
+    margin-right: 2px;
+    }
+.right-button{
+    width: 50%;
+    cursor: pointer;
+    margin-left: 2px;
+    }
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    }

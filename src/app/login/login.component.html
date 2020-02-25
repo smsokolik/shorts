@@ -19,10 +19,12 @@
                     Password must be 8 and 128 characters
                 </mat-error>
         </mat-form-field>
-        <button class="login-button" mat-raised-button [color]="loginForm.valid ? 'primary' : 'warn'" [disabled]="!loginForm.valid && !loginForm.touched">Login</button>
 
-        <a routerLink="/signup" class="login-button" mat-raised-button [color]="'primary'">Sign Up</a>
-    
+        <div class="flex-container">
+        <button routerLink="/user" class="login-button left-button" mat-raised-button [color]="loginForm.valid ? 'primary' : 'warn'" [disabled]="!loginForm.valid && !loginForm.touched">Login</button>
+
+        <button routerLink="/signup"class="right-button" mat-raised-button>Sign Up</button>
+        </div>
 
     </form>
 </body>

@@ -25,4 +25,8 @@ export class UserService {
     password:
     localStorage.setItem('users', JSON.stringify(newUser));
   }
+  currentUsers = [
+    { "username": "Lucas", "password": "lwsokolik" },
+    { "username": "Joseph", "password": "jmsokolik" },
+  ];
 }
