@@ -1,6 +1,7 @@
 body {
     background-color: #434343;
     color: white;
+
 }
 h1 {
     padding-top: 50px;
@@ -12,5 +13,10 @@ img {
     margin-right: auto;
     width: 25;
     padding-top: 75px;
-    padding-bottom: 25px;
+    padding-bottom: 75px;
+}
+button {
+  width: 100px;
+  margin: 0 auto; 
+  display: block;
 }
