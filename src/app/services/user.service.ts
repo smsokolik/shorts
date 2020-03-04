@@ -30,10 +30,11 @@ export class UserService {
     localStorage.clear();
     this.router.navigate(['/login'])
   }
-  signup(username, password){
+  signup(username, password, city){
     let newuser = {
       username : username,
-      password : password
+      password : password,
+      city: city
     };
     localStorage.setItem('newuser', JSON.stringify(newuser));
   }

@@ -1,11 +1,11 @@
 var mysql = require('mysql')
 var pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'localhost',
-    user: 'YOUR USERNAME (PREFERABLY FROM process.env.dbUsername)',
-    password: 'YOU PASSWORD (PREFERABLY FROM process.env.password)',
-    city: 'YOU PASSWORD (PREFERABLY FROM process.env.city)',
-    database: 'YOUR DATABASE (PREFERABLY FROM process.env.db)'
+    port: process.env.DB_PORT,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 })
 
 pool.getConnection((err, connection) => {
