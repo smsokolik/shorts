@@ -9,6 +9,7 @@
         </mat-error>
     </mat-form-field>
     <br>
+    {{msg}}
     <mat-form-field class="input">
         <input matInput formControlName="password" [type]= "hide ? 'password' : 'text'" name = "password" placeholder = "Password">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label] = "'Hide password'" [attr.aria-pressed] = "hide">

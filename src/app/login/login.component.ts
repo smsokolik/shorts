@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +12,20 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup
   hide: boolean = true;
-  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
+  msg: string;
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private http: HttpClient) { }
 
   login(e){
     e.preventDefault();
     if(this.loginForm.valid){
-      this.userService.login(this.loginForm.value.username, this.loginForm.value.password);
+      this.userService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
+        res=>{
+          if(res["success"]){
+          localStorage.setItem("user", res["username"]);
+          this.router.navigate([`/user/${res["username"]}`])
+          }
+          this.msg = res["msg"];
+        });
     }
   }
   ngOnInit(): void {

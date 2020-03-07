@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';f
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +17,14 @@ export class SignupComponent implements OnInit {
   signup(e){
     e.preventDefault();
     if(this.signupForm.valid){
-      this.userService.signup(this.signupForm.value.username, this.signupForm.value.password);
+      this.userService.signup(this.signupForm.value.username, this.signupForm.value.password).subscribe(
+        res=>{
+          if(res["success"]){
+          localStorage.setItem("user", res["username"]);
+          this.router.navigate([`/user/${res["username"]}`])
+          }
+          this.msg = res["msg"];
+        });
     }
   }
   ngOnInit(): void {
