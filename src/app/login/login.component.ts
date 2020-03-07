@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup
   hide: boolean = true;
   msg: string;
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
 
   login(e){
     e.preventDefault();

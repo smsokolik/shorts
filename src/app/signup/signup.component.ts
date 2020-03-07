@@ -12,7 +12,8 @@ import { Router } from '@angular/router';f
 export class SignupComponent implements OnInit {
   signupForm: FormGroup
   hide: boolean = true;
-  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
+  msg: string;
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router) { }
 
   signup(e){
     e.preventDefault();
